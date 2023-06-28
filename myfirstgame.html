@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Guess Me</title>
+        <style>
+            body {
+                text-align: center;
+                font-family: arial, sans-serif;
+                background-color: #aaca5e;
+            }
+            h1 {color: #000000}
+            p {color: #0c0c0c}
+            input{
+                padding: 5px;
+                border: 1px solid #0044ff;
+                border-radius: 5px;
+            }
+            button {
+                padding: 5px 10px;
+                background-color: #00afce;
+                color: #000000;
+                border: none;
+                border-radius: 5px;
+                margin-top: 10px;
+                cursor: pointer;
+            }
+            button:hover {
+                background-color: #ec0e0e;
+            }
+            #result {
+                font-weight: bold;
+                margin-top: 20px;
+            }
+        </style>
+    </head>
+        <body>
+            <h1>GUESS ME</h1>
+            <p>Saya telah memilih sebuah angka antara 1 hingga 100. Bisakah Anda menebaknya?</p>
+            <input type="number" id="guessInput" min="1" max="100">
+            <button onclick="checkGuess()">Tebak</button>
+            <button onclick="quitGame()">Quit</button>
+            <p id="result"></p>
+
+            <script>
+            // Angka yang harus ditebak
+            var targetNumber = Math.floor(Math.random() * 100) + 1;
+            function checkGuess() {
+            // Mendapatkan nilai dari input tebakan
+            var guess = parseInt(document.getElementById("guessInput").value);
+            // Memeriksa apakah tebakan benar, terlalu tinggi, atau terlalu rendah
+            if (guess === targetNumber) {
+                document.getElementById("result").innerHTML = "Selamat Anda menebak dengan benar!!!.";
+            } else if (guess < targetNumber) {
+                document.getElementById("result").innerHTML = "Duh...tebakan Anda terlalu rendah. Coba lagi!";
+            } else {
+                document.getElementById("result").innerHTML = "Opp...tebakan Anda terlalu tinggi. Coba lagi!";
+            }
+        }
+            </script>
+        </body>
+</html>
